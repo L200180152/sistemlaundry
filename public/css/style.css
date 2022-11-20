@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500;700&display=swap');
+
+.content{
+    font-family: 'Roboto';
+    overflow-x: hidden;
+}
+.hero{
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    height: 500px;
+    background-position: 0% 25%;
+}
+
+.beranda-text{
+    margin-left: auto;
+    /* position: absolute; */
+    margin-top: 30%;
+    font-family: 'poppins';
+    /* font-weight: bold; */
+    color: white;
+}
+.mitra-text{
+    margin-right: auto;
+    margin-top: 20%;
+    margin-left: 30%;
+    font-family: 'poppins';
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+.kontak-text{
+    margin-right: auto;
+    margin-top: 10%;
+    margin-left: 30%;
+    font-family: 'poppins';
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+.galeri-text{
+    margin-top: 20%;
+    margin-left: 10%;
+    font-family: 'poppins';
+    font-weight: bold;
+    color: rgb(49, 49, 49);
+}
+
+.mitra{
+    background-color: rgb(255, 255, 255);
+    height: 500px;
+}
+
+.mitra-img{
+    height :500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kontak-img{
+    height :560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mitra-img1{
+    width: 400px;
+    height: 400px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mitra-img2{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .6;
+    object-fit: cover;
+    transition: transform .50s;
+}
+
+.mitra-img1:hover .mitra-img2{
+    transform: scale(1.13);
+}
+
+.galeri{
+    background-color: #D6E4E5;
+    height: 500px;
+}
+.kontak{
+    /* background-color: rgb(73, 73, 73); */
+    height: 560px;
+}
+.kontak-hero{
+    background-image: url('/img/kontak1.jpg');
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.tentang{
+    background-color: rgb(29, 68, 141);
+    height: 450px;
+}
+.tentang-text{
+    color: white;
+}
+
+.header-tentang{
+    padding: 30px;
+    color: white;
+}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\viewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('user.landingpage');
+// });
+
+Route::get('/', [viewController::class, 'landingpage']);
+Route::get('/login', [viewController::class, 'login']);
+Route::get('/register', [viewController::class, 'register']);
+Route::get('/dashboard', [viewController::class, 'dashboard']);

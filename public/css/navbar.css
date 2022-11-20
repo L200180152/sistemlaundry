@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500;700&display=swap');
+
+.nav_view{
+    font-family: 'poppins';
+    /* font-weight: bold; */
+    
+}
+
+.navbar a{
+    color: white!important;
+}
+
+.navbar-brand{
+    padding: 1.5rem;
+}
+
+.navbar-nav{
+    margin-right: 6rem;
+}
+
+.link_footer a{
+    font-family: 'poppins';
+    font-size: 50px;
+    font-weight: bold;
+}
