@@ -1,0 +1,65 @@
+.content-main{
+    margin-top: 40px;
+}
+
+.konten-rekap{
+    display: flex;
+}
+
+.info-rekap{
+    height: 120px;
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #ececec , #ffffff);
+    border-radius: 8px;
+    border-left: 5px;
+    box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.05);
+    transition: all .3s;
+}
+
+.info-rekap .badge-descrption{
+   display: block;
+   padding: 3px;
+   color: #ffffff;
+   border-radius: 5px;
+   background-color: rgb(61, 61, 61);
+   text-decoration: none;
+   transition: all .2s;
+}
+
+.info-rekap .description-list{
+    height: 80%;
+}
+.info-rekap .color-rekap{
+    height: 120px;
+    width: 15px;
+    background-color: brown;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.info-rekap .rekap-description{
+    padding: 10px;
+    width: 150px;
+    font-size: 14px;
+}
+
+.info-rekap .rekap-description span{
+    font-weight: 700;
+}
+
+.info-rekap .img-description{
+    padding: 10px;
+    font-size: 40px;
+    display: flex;
+    margin: auto;
+    opacity: .5;
+    transition: all .3s;
+}
+
+.info-rekap:hover .img-description{
+transform: scale(1.2);
+}
+
+.info-rekap:hover .badge-descrption{
+    transform: scale(1.03);
+}

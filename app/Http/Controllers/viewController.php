@@ -10,6 +10,20 @@ class viewController extends Controller
     {
         return view('user.landingpage');
     }
+    public function galeri()
+    {
+        $data = [
+            'title' => 'Galeri'
+        ];
+        return view('user.galeri', $data);
+    }
+    public function mitra()
+    {
+        $data = [
+            'title' => 'Mitra'
+        ];
+        return view('user.landingpage', $data);
+    }
 
     public function login()
     {
@@ -28,11 +42,42 @@ class viewController extends Controller
         return view('auth.register', $data);
     }
 
-    public function dashboard(Request $request)
+    public function dashboard()
     {
         $data = [
             'title' => 'Dashboard MyLaundry | Karyawan'
         ];
-        return view('karyawan.base', $data);
+        return view('karyawan.dashboard', $data);
+    }
+
+    public function information()
+    {
+        $data = [
+            'title' => 'Informasi MyLaundry | Karyawan'
+        ];
+        return view('karyawan.information', $data);
+    }
+
+    public function order()
+    {
+        $data = [
+            'title' => 'Pesanan MyLaundry | Karyawan'
+        ];
+        return view('karyawan.order', $data);
+    }
+
+    public function report()
+    {
+        $data = [
+            'title' => 'Laporan MyLaundry | Karyawan'
+        ];
+        return view('karyawan.report', $data);
+    }
+    public function employe()
+    {
+        $data = [
+            'title' => 'Karyawan MyLaundry | Karyawan'
+        ];
+        return view('karyawan.employe', $data);
     }
 }

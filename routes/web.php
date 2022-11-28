@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [viewController::class, 'landingpage']);
+Route::get('/mitra', [viewController::class, 'mitra']);
+Route::get('/galeri', [viewController::class, 'galeri']);
+
 Route::get('/login', [viewController::class, 'login']);
 Route::get('/register', [viewController::class, 'register']);
 Route::get('/dashboard', [viewController::class, 'dashboard']);
+Route::get('/information', [viewController::class, 'information']);
+Route::get('/order', [viewController::class, 'order']);
+Route::get('/employe', [viewController::class, 'employe']);
+Route::get('/report', [viewController::class, 'report']);
