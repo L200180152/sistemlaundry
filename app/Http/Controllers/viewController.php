@@ -22,7 +22,7 @@ class viewController extends Controller
         $data = [
             'title' => 'Mitra'
         ];
-        return view('user.landingpage', $data);
+        return view('user.mitra', $data);
     }
 
     public function login()
@@ -58,12 +58,12 @@ class viewController extends Controller
         return view('karyawan.information', $data);
     }
 
-    public function order()
+    public function tampilan()
     {
         $data = [
-            'title' => 'Pesanan MyLaundry | Karyawan'
+            'title' => 'Tampilan MyLaundry | Karyawan'
         ];
-        return view('karyawan.order', $data);
+        return view('karyawan.tampilan', $data);
     }
 
     public function report()

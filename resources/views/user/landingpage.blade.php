@@ -20,6 +20,10 @@
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+
     <title>MyLaundry.</title>
 </head>
 
@@ -74,7 +78,7 @@
                     <div class="mitra-text">
                         <h1>Jadilah Bagian dari Kami</h1>
                         <p>Menjadi mitra Laundry Kilat sangat berarti, bukalah outlet di segala penjuru</p>
-                        <p><a href="#" class="btn btn-primary rounded fw-bold">Bergabung Bersama Kami</a></p>
+                        <p><a href="/mitra" class="btn btn-primary rounded fw-bold">Bergabung Bersama Kami</a></p>
                     </div>
                 </div>
                 <div class="col-md-6 mitra-img">

@@ -1,0 +1,33 @@
+.konten-mitra{
+    min-height: 600px;
+    background-color: cornflowerblue;
+}
+
+.konten-mitra .header-mitra h2{
+    font-family: 'poppins';
+    font-weight: 500;
+    color: white;
+    margin-top: 50px;
+}
+
+.konten-mitra .header-mitra p{
+    /* width: 500px; */
+    font-family: 'poppins';
+    color: white;
+}
+
+.konten-mitra .header-mitra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+    width: auto;
+    min-height: 250px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.konten-mitra .header-mitra .row{
+    text-align: center;
+    max-width: 500px;
+}

@@ -1,0 +1,97 @@
+.content-main .bagian-display{
+    display: flex;
+    flex-direction: column;
+}
+
+.content-main .bagian-display .sub-tampilan{
+    font-size: 18px;
+    /* margin-bottom: 20px; */
+    /* transition: all cubic-bezier(0.075, 0.82, 0.165, 1); */
+}
+
+.content-main .bagian-display h6{
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.input-file{
+    width: 50%;
+}
+
+.bagian-display .bagian-navigasi{
+    display: none;
+    transition: var(--tran-05);
+}
+
+.bagian-display .bagian-navigasi.show{
+    margin-top: 30px;
+    display: block;
+    transition: var(--tran-05);
+}
+
+.bagian-display .bagian-beranda{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-beranda.show{
+    transition: all .3s;
+    margin-top: 30px;
+    display: block;
+}
+
+.bagian-display .bagian-mitra{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-mitra.show{
+    transition: all .3s;
+    display: block;
+    margin-top: 30px;
+}
+
+.bagian-display .bagian-galeri{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-galeri.show{
+    transition: all .3s;
+    display: block;
+    margin-top: 30px;
+}
+
+.bagian-display .bagian-kontak{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-kontak.show{
+    transition: all .3s;
+    display: block;
+    margin-top: 30px;
+}
+
+.bagian-display .bagian-about{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-about.show{
+    transition: all .3s;
+    display: block;
+    margin-top: 30px;
+}
+
+.bagian-display .bagian-footer{
+    transition: all .3s;
+    display: none;
+}
+
+.bagian-display .bagian-footer.show{
+    transition: all .3s;
+    display: block;
+    margin-top: 30px;
+}

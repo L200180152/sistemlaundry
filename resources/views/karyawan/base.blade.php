@@ -19,9 +19,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/headercontent.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/tampilan.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('/DataTables/datatables.min.css') }}" />
+
     <title>{{ $title }}</title>
 </head>
 
@@ -43,10 +54,10 @@
                         <span class="description">Dashboard</span>
                     </a>
                 </div>
-                <div class="list-item {{ $title === 'Informasi MyLaundry | Karyawan' ? 'active' : '' }}">
-                    <a href="/information">
-                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
-                        <span class="description">Information</span>
+                <div class="list-item {{ $title === 'Tampilan MyLaundry | Karyawan' ? 'active' : '' }}">
+                    <a href="/tampilan">
+                        <div class="icon"><i class="fa-solid fa-display"></i></div>
+                        <span class="description">Tampilan</span>
                     </a>
                 </div>
                 <div class="list-item {{ $title === 'Pesanan MyLaundry | Karyawan' ? 'active' : '' }}">
@@ -67,6 +78,21 @@
                         <span class="description">Report</span>
                     </a>
                 </div>
+                <div class="user-resize">
+                    <div class="list-item {{ $title === 'Notifikasi | Karyawan' ? 'active' : '' }}">
+                        <a href="#">
+                            <div class="icon"><i class="fa-solid fa-bell" style="font-size: 20px;"></i></div>
+                            <span class="description">Notifikasi</span>
+                        </a>
+                    </div>
+                    <div class="list-item {{ $title === 'Profil User | Karyawan' ? 'active' : '' }}">
+                        <a href="#">
+                            <div class="icon"><i class="fa-solid me-2 fa-circle-user" style="font-size: 20px;"></i>
+                            </div>
+                            <span class="description">Username</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="main-content">
@@ -82,12 +108,12 @@
                 <ul class="navbar-left">
                     <li>
                         <div class="list-item ms-3">
-                            <a class="nav-link active mb-1" href="/">Website</a>
+                            <a class="nav-link active" href="/">Website</a>
                         </div>
                     </li>
                     <li>
-                        <div class="list-item ms-3">
-                            <div class="input-group input-group-sm mb-3">
+                        <div class="list-item ms-3 pencarian">
+                            <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Pencarian"
                                     aria-label="Pencarian" aria-describedby="search" style="font-size: 12px;">
                                 <button class="btn btn-primary" type="button" id="search"><i
@@ -107,7 +133,7 @@
                         <div class="list-item me-5">
                             <a class="nav-link active d-flex align-items-center" href="#beranda"><i
                                     class="fa-solid me-2 fa-circle-user" style="font-size: 20px;"></i>Username<i
-                                    class="fa-solid ms-2 mb-1 fa-sort-down"></i></a>
+                                    class="fa-solid ms-2 fa-sort-down"></i></a>
                         </div>
                     </li>
                 </ul>
@@ -115,10 +141,14 @@
             <div class="content-website">
                 @yield('content')
             </div>
+            <footer class="footer">
+                <span>Created by Mu'taz Al Farisi. © 2020</span>
+            </footer>
         </div>
     </div>
-
     <script src="{{ asset('/js/animation.js') }}"></script>
+    <script src="{{ asset('/js/showup.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/DataTables/datatables.min.js') }}"></script>
 </body>
 
 </html>

@@ -1,0 +1,35 @@
+
+.main-dashboard{
+    display: flex;
+}
+
+@media(max-width:600px) {
+    .main-dashboard{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-dashboard .informasi-toko{
+        order: 2;
+    }
+    .main-dashboard .penghasilan-toko{
+        order: 1;
+    }
+}
+
+.main-dashboard h2,span{
+    font-weight: 600;
+    color: rgb(61, 61, 61) ;
+}
+
+.main-dashboard .informasi-toko{
+    flex: 1;
+    /* background-color: rgb(207, 76, 76); */
+    padding: 10px;
+}
+
+.main-dashboard .penghasilan-toko{
+    flex: 1;
+   /* background-color: blue; */
+   padding: 10px;
+}
