@@ -28,8 +28,14 @@ Route::get('/register', [viewController::class, 'register']);
 Route::get('/dashboard', [viewController::class, 'dashboard']);
 Route::get('/information', [viewController::class, 'information']);
 Route::get('/tampilan', [viewController::class, 'tampilan']);
-Route::get('/order', [orderController::class, 'order']);
 Route::get('/employe', [viewController::class, 'employe']);
 Route::get('/report', [viewController::class, 'report']);
+
+Route::get('/order', [orderController::class, 'order']);
+Route::get('/buatorder', [orderController::class, 'buatorder']);
+Route::get('/editorder/{id}', [orderController::class, 'editorder']);
+Route::post('/addorder', [orderController::class, 'addorder']);
+
+
 
 // Route::get('/order', [HomeController::class, 'getOrder']);

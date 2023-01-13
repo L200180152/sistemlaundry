@@ -200,6 +200,7 @@
 }
 
 .tombol-simpan{
+    text-decoration: none;
     padding: 0.8em 2em;
     font-size: 12px;
     text-transform: uppercase;
@@ -224,6 +225,64 @@
 }
 
 .tombol-simpan:active{
+    transform: translateY(-1px);
+}
+
+.tombol-merah{
+    text-decoration: none;
+    padding: 0.8em 2em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-family: 'poppins';
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(170, 35, 35);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.tombol-merah:hover{
+    background-color: #3f699c;
+    box-shadow: 0px 15px 20px rgba(10, 10, 10, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.tombol-merah:active{
+    transform: translateY(-1px);
+}
+
+.tombol-biru{
+    text-decoration: none;
+    padding: 0.8em 2em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-family: 'poppins';
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: #3f699c;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.tombol-biru:hover{
+    background-color: rgb(29, 138, 66);
+    box-shadow: 0px 15px 20px rgba(10, 10, 10, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.tombol-biru:active{
     transform: translateY(-1px);
 }
 
@@ -334,6 +393,10 @@
 .content-main{
     padding: 20px;
     box-sizing: border-box;
+}
+
+table tbody tr td{
+    font-size: 12px;
 }
 
 @media screen and (max-width:600px) {

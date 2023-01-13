@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\order;
 use Illuminate\Http\Request;
 
 class viewController extends Controller
@@ -69,14 +70,16 @@ class viewController extends Controller
     public function report()
     {
         $data = [
-            'title' => 'Laporan MyLaundry | Karyawan'
+            'title' => 'Laporan MyLaundry | Karyawan',
+            'order' => order::select('*')->get()
         ];
         return view('karyawan.report', $data);
     }
     public function employe()
     {
         $data = [
-            'title' => 'Karyawan MyLaundry | Karyawan'
+            'title' => 'Karyawan MyLaundry | Karyawan',
+            'order' => order::select('*')->get()
         ];
         return view('karyawan.employe', $data);
     }

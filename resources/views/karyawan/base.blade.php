@@ -111,7 +111,7 @@
                             <a class="nav-link active" href="/">Website</a>
                         </div>
                     </li>
-                    <li>
+                    {{-- <li>
                         <div class="list-item ms-3 pencarian">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Pencarian"
@@ -120,7 +120,7 @@
                                         class="fas fa-search"></i></button>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
                 <ul class="navbar-right">
                     <li>
