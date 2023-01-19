@@ -83,4 +83,13 @@ class viewController extends Controller
         ];
         return view('karyawan.employe', $data);
     }
+    public function antrian()
+    {
+        $data = [
+            'title' => 'Antrian MyLaundry | Karyawan',
+            'order' => order::select('*')->get()
+        ];
+        return view('karyawan.antrian', $data);
+    }
+   
 }

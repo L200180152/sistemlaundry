@@ -9,7 +9,8 @@
         <span class="title-page">Buat Order</span>
         {{-- <a href="/buatorder" class="tombol-simpan me-5"><i class="fa-solid fa-plus me-2"></i>Buat Order</a> --}}
     </div>
-    <a href="/order"><button class="tombol-simpan me-4 mt-3 mb-3"><i class="fa-solid fa-plus me-2"></i>Kembali</button></a>
+    <a href="/order"><button class="tombol-simpan me-4 mt-3 mb-3"><i
+                class="fa-solid fa-arrow-left-long me-2"></i>Kembali</button></a>
     @if (session('sukses'))
         <div class="alert alert-success mt-2">
             {{ session('sukses') }}

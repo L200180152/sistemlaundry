@@ -16,7 +16,7 @@ class orderController extends Controller
     {
         $data = [
             'title' => 'Pesanan MyLaundry | Karyawan',
-            'order' => order::select('*')->get()
+            'order' => order::select('*')->latest()->get()
             // 'order' => order::select('*')->limit(100)->get()
         ];
         // return DataTables::of($data)->make(true);
@@ -39,9 +39,62 @@ class orderController extends Controller
             'order' => order::where('id', $id)->get()
         ];
 
+        return view('karyawan.editorder', $data);
+    }
+
+    public function filtertanggal(Request $request)
+    {
+
+        $data = [
+            'title' => 'Pesanan MyLaundry | Karyawan',
+            'order' => order::whereDate('tanggal_masuk', '>=', $request->tgl_awal)
+                ->whereDate('tanggal_masuk', '<=', $request->tgl_akhir)->get()
+        ];
         // dd($data);
 
-        return view('karyawan.editorder', $data);
+        return view('karyawan.orderfilter', $data);
+    }
+
+    public function editordersave(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required|max:255',
+            'no_hp' => 'required|max:255',
+            'berat' => 'required|max:255|numeric',
+            'alamat' => 'required',
+            'harga' => 'required',
+            'paket_laundry' => 'required',
+            'tanggal_masuk' => 'required',
+            'tanggal_keluar' => 'required',
+        ]);
+
+        $editorder = order::where('id', $request->id)->update([
+            'nama' => $request->nama,
+            'berat' => $request->berat,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
+            'harga' => $request->harga,
+            'paket_laundry' => $request->paket_laundry,
+            'tanggal_masuk' => $request->tanggal_masuk,
+            'tanggal_keluar' => $request->tanggal_keluar,
+        ]);
+
+        if ($editorder) {
+            return redirect('/order')->with('sukses', 'Berhasil Menambahkan');
+        } else {
+            return redirect('/order')->with('gagal', 'Gagal Menambahkan');
+        }
+    }
+
+    public function hapusorder(Request $request)
+    {
+        $hapusorder = order::where('id', $request->id)->delete();
+        // dd($request->id);
+        if ($hapusorder) {
+            return redirect('/order')->with('sukses', 'Berhasil Menghapus');
+        } else {
+            return redirect('./editorder/' . $request->id)->with('gagal', 'Gagal Menghapus');
+        }
     }
 
     public function addorder(Request $request)

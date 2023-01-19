@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 
     {{-- Bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,6 +36,9 @@
     <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/tampilan.css') }}">
 
+    {{-- <link rel="stylesheet" href="{{ asset('MDB5/css/mdb.min.css') }}">
+    <script type="text/javascript" href="{{ asset('MDB5/js/mdb.min.js') }}"></script> --}}
+
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
@@ -33,6 +48,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('/DataTables/datatables.min.css') }}" />
 
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
     <title>{{ $title }}</title>
 </head>
 
@@ -60,6 +78,18 @@
                         <span class="description">Tampilan</span>
                     </a>
                 </div>
+                <div class="list-item {{ $title === 'Kategori MyLaundry | Karyawan' ? 'active' : '' }}">
+                    <a href="/kategori">
+                        <div class="icon"><i class="fa-solid fa-paperclip"></i></div>
+                        <span class="description">Kategori</span>
+                    </a>
+                </div>
+                <div class="list-item {{ $title === 'Antrian MyLaundry | Karyawan' ? 'active' : '' }}">
+                    <a href="/antrian">
+                        <div class="icon"><i class="fa-solid fa-tag"></i></div>
+                        <span class="description">Antrian</span>
+                    </a>
+                </div>
                 <div class="list-item {{ $title === 'Pesanan MyLaundry | Karyawan' ? 'active' : '' }}">
                     <a href="/order">
                         <div class="icon"><i class="fa-solid fa-tag"></i></div>
@@ -76,6 +106,12 @@
                     <a href="/report">
                         <div class="icon"><i class="fa-solid fa-file-invoice"></i></div>
                         <span class="description">Report</span>
+                    </a>
+                </div>
+                <div class="list-item {{ $title === 'Informasi MyLaundry | Karyawan' ? 'active' : '' }}">
+                    <a href="/information">
+                        <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <span class="description">Informasi</span>
                     </a>
                 </div>
                 <div class="user-resize">
@@ -111,16 +147,6 @@
                             <a class="nav-link active" href="/">Website</a>
                         </div>
                     </li>
-                    {{-- <li>
-                        <div class="list-item ms-3 pencarian">
-                            <div class="input-group input-group-sm">
-                                <input type="text" class="form-control" placeholder="Pencarian"
-                                    aria-label="Pencarian" aria-describedby="search" style="font-size: 12px;">
-                                <button class="btn btn-primary" type="button" id="search"><i
-                                        class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </li> --}}
                 </ul>
                 <ul class="navbar-right">
                     <li>
@@ -131,10 +157,14 @@
                     </li>
                     <li>
                         <div class="list-item me-5">
-                            <a class="nav-link active d-flex align-items-center" href="#beranda"><i
+                            <a class="nav-link active d-flex align-items-center dropdown"><i
                                     class="fa-solid me-2 fa-circle-user" style="font-size: 20px;"></i>Username<i
                                     class="fa-solid ms-2 fa-sort-down"></i></a>
+
                         </div>
+                    </li>
+                    <li>
+
                     </li>
                 </ul>
             </nav>
@@ -142,7 +172,7 @@
                 @yield('content')
             </div>
             <footer class="footer">
-                <span>Created by Mu'taz Al Farisi. © 2020</span>
+                <span>Created by Mu'taz Al Farisi. © 2022</span>
             </footer>
         </div>
     </div>

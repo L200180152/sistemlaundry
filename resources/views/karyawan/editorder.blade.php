@@ -17,10 +17,11 @@
     @endif
 
     <div class="content-main">
-        <form action="/addorder" method="POST">
+        <form action="/editorder/save" method="POST">
             @csrf
             <div class="row">
                 @foreach ($order as $o)
+                    <input type="hidden" name="id" value="{{ $o->id }}">
                     <div class="col">
                         <h6>Nama</h6>
                         <input type="text" class="form-control mb-3 @error('nama') is invalid @enderror" name="nama"
@@ -59,9 +60,9 @@
                         <h6>Paket Laundry</h6>
                         <select class="form-control mb-3 @error('paket_laundry') is invalid @enderror" name="paket_laundry"
                             id="paket_laundry" onchange="hitung()">
-                            <option value="{{ $o->paket_laundry }}">{{ $o->paket_laundry }}</option>
-                            <option value="4000">Cuci Kering Setrika</option>
-                            <option value="3000">Cuci Kering / Setrika Saja</option>
+                            <option value="{{ $o->paket_laundry }}" selected>{{ $o->paket_laundry }}</option>
+                            <option value="paket1">Cuci Kering Setrika</option>
+                            <option value="paket2">Cuci Kering / Setrika Saja</option>
                         </select>
                         @error('paket_laundry')
                             <div class="alert alert-danger">
@@ -98,17 +99,47 @@
                 @endforeach
 
             </div>
-            <button type="submit" class="tombol-simpan">Tambahkan</button>
+            <button type="submit" class="tombol-simpan">Simpan</button>
+            <button type="button" class="tombol-merah" data-bs-toggle="modal"
+                data-bs-target="#hapusorder{{ $o->id }}">Hapus</button>
         </form>
-        {{-- <button type="submit" class="tombol-merah">Hapus</button> --}}
+        <!-- Modal -->
+        <div class="modal fade" id="hapusorder{{ $o->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Order</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah Anda Yakin Ingin Menghapus Order Ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="tombol-simpan" data-bs-dismiss="modal">Tutup</button>
+                        <form action="/hapusorder" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $o->id }}">
+                            <button type="submit" class="tombol-merah">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         function hitung() {
             let paketlaundry = $('#paket_laundry option:selected').val();
             let berat = $('#berat').val();
-            let hasil = berat * paketlaundry;
-            $('#harga').val(hasil);
+            if (paketlaundry == 'paket1') {
+                let hasil = berat * 4000;
+                $('#harga').val(hasil);
+            } else {
+                let hasil = berat * 3000;
+                $('#harga').val(hasil);
+            }
         }
     </script>
 @endsection

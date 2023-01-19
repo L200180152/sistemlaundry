@@ -6,7 +6,7 @@
     </div>
     <div class="content-main">
         <form action="">
-            <span>Nama</span>
+            <span>Nama Laundry</span>
             <div class="form-floating mt-2 mb-3">
                 <input type="text" class="form-control w-75" name="nama-laundry" id="nama-laundry" placeholder="Nama">
                 <label for="nama-laundry" class="text-secondary ">Nama</label>
