@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\orderController;
+use App\Http\Controllers\tampilanController;
 use App\Http\Controllers\viewController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,11 +29,14 @@ Route::get('/login', [viewController::class, 'login']);
 Route::get('/register', [viewController::class, 'register']);
 Route::get('/dashboard', [viewController::class, 'dashboard']);
 Route::get('/information', [viewController::class, 'information']);
-Route::get('/tampilan', [viewController::class, 'tampilan']);
 Route::get('/employe', [viewController::class, 'employe']);
 Route::get('/report', [viewController::class, 'report']);
 Route::get('/antrian', [viewController::class, 'antrian']);
 
+Route::get('/tampilan', [tampilanController::class, 'tampilan']);
+Route::post('/addtampilan', [tampilanController::class, 'addtampilan']);
+Route::post('/updatetampilan/{id}', [tampilanController::class, 'updatetampilan']);
+Route::post('/resettampilan/{id}', [tampilanController::class, 'resettampilan']);
 
 Route::get('/kategori', [kategoriController::class, 'kategori']);
 Route::post('/addkategori', [kategoriController::class, 'addkategori']);

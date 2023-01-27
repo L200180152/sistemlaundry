@@ -3,10 +3,6 @@
 @section('content')
     <div class="content-header">
         <span class="title-page">Pesanan</span>
-        <div>
-            <a href="/buatorder"><button class="tombol-biru me-4"><i class="fa-solid fa-plus me-2"></i>Buat
-                    Order</button></a>
-        </div>
     </div>
 
     @if (session('success'))
@@ -37,7 +33,6 @@
                 @foreach ($order as $o)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-
                         <td>{{ $o->nama }}</td>
                         <td>{{ $o->berat }} Kg</td>
                         <td>{{ $o->alamat }}</td>

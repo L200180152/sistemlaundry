@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
+use App\Models\setting;
+use App\Models\tampilan;
 use Illuminate\Http\Request;
 
 class viewController extends Controller
 {
     public function landingpage()
     {
-        return view('user.landingpage');
+        $data = [
+            'item' => tampilan::latest()->first(),
+            'items' => tampilan::count(),
+            'setting' => setting::latest()->first(),
+            'settings' => setting::count(),
+        ];
+
+        // dd($data);
+        return view('user.landingpage', $data);
     }
     public function galeri()
     {
@@ -46,7 +56,8 @@ class viewController extends Controller
     public function dashboard()
     {
         $data = [
-            'title' => 'Dashboard MyLaundry | Karyawan'
+            'title' => 'Dashboard MyLaundry | Karyawan',
+            'info' => setting::all()->first()
         ];
         return view('karyawan.dashboard', $data);
     }
@@ -54,24 +65,18 @@ class viewController extends Controller
     public function information()
     {
         $data = [
-            'title' => 'Informasi MyLaundry | Karyawan'
+            'title' => 'Informasi MyLaundry | Karyawan',
+            'info' => setting::all()->first()
         ];
         return view('karyawan.information', $data);
-    }
-
-    public function tampilan()
-    {
-        $data = [
-            'title' => 'Tampilan MyLaundry | Karyawan'
-        ];
-        return view('karyawan.tampilan', $data);
     }
 
     public function report()
     {
         $data = [
             'title' => 'Laporan MyLaundry | Karyawan',
-            'order' => order::select('*')->get()
+            'order' => order::select('*')->get(),
+            'info' => setting::all()->first()
         ];
         return view('karyawan.report', $data);
     }
@@ -79,7 +84,8 @@ class viewController extends Controller
     {
         $data = [
             'title' => 'Karyawan MyLaundry | Karyawan',
-            'order' => order::select('*')->get()
+            'order' => order::select('*')->get(),
+            'info' => setting::all()->first()
         ];
         return view('karyawan.employe', $data);
     }
@@ -87,9 +93,9 @@ class viewController extends Controller
     {
         $data = [
             'title' => 'Antrian MyLaundry | Karyawan',
-            'order' => order::select('*')->get()
+            'order' => order::select('*')->get(),
+            'info' => setting::all()->first()
         ];
         return view('karyawan.antrian', $data);
     }
-   
 }

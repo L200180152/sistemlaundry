@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategori;
+use App\Models\setting;
 use Illuminate\Http\Request;
 
 class kategoriController extends Controller
@@ -11,7 +12,8 @@ class kategoriController extends Controller
     {
         $data = [
             'title' => 'Kategori MyLaundry | Karyawan',
-            'kategori' => kategori::all()
+            'kategori' => kategori::all(),
+            'info' => setting::all()->first()
         ];
         return view('karyawan.kategori', $data);
     }
@@ -69,6 +71,7 @@ class kategoriController extends Controller
             'deskripsi' => $request->deskripsi,
             'satuan' => $request->satuan,
             'harga' => $request->harga,
+            'tipe' => $request->tipe
         ]);
 
         if ($addkategori) {

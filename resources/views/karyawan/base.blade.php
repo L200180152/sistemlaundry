@@ -61,7 +61,7 @@
                 <div class="list-item">
                     <a href="#">
                         <img src="" alt="">
-                        <span class="description-header">MyLaundry.</span>
+                        <span class="description-header">{{ $info->namatoko }}</span>
                     </a>
                 </div>
             </div>
@@ -156,11 +156,13 @@
                         </div>
                     </li>
                     <li>
-                        <div class="list-item me-5">
-                            <a class="nav-link active d-flex align-items-center dropdown"><i
+                        <div class="list-item dropdown me-5">
+                            <a class="nav-link active d-flex align-items-center btndrop" onclick="dropdownclick()"><i
                                     class="fa-solid me-2 fa-circle-user" style="font-size: 20px;"></i>Username<i
-                                    class="fa-solid ms-2 fa-sort-down"></i></a>
-
+                                    class="fa-solid ms-2 mb-2 fa-sort-down"></i></a>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -179,6 +181,27 @@
     <script src="{{ asset('/js/animation.js') }}"></script>
     <script src="{{ asset('/js/showup.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/DataTables/datatables.min.js') }}"></script>
+
+    <script>
+        /* When the user clicks on the button, 
+                                                                                                            toggle between hiding and showing the dropdown content */
+        function dropdownclick() {
+            document.getElementById("myDropdown").classList.toggle("clickdropdown");
+        }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.btndrop')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('clickdropdown')) {
+                        openDropdown.classList.remove('clickdropdown');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

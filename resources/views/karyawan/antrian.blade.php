@@ -27,9 +27,9 @@
                     <th>Nama </th>
                     <th>Berat</th>
                     <th>Harga</th>
-                    <th>Alamat</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Tanggal Keluar</th>
+                    <th>Categori</th>
+                    <th>Status Pembayaran</th>
+                    <th>Status Laundry</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -40,15 +40,13 @@
                         <td>{{ $o->nama }}</td>
                         <td>{{ $o->berat }} Kg</td>
                         <td>Rp. {{ $o->harga }}</td>
-                        <td>{{ $o->alamat }}</td>
-                        <td>{{ date('D j F y', strtotime($o->tanggal_masuk)) }}</td>
-                        <td>{{ date('D j F Y', strtotime($o->tanggal_keluar)) }}</td>
+                        <td>Categori</td>
+                        <td>Sudah Bayar</td>
+                        <td>Selesai</td>
                         <td class="text-center">
                             <a href="/editorder/{{ $o->id }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="https://wa.me/{{ $o->no_hp }}" class="btn btn-sm btn-success" target="_blank"
-                                rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
-                            <button class="btn btn-sm btn-warning"><i class="fa-solid fa-print text-light"></i></button>
+                            <button class="btn btn-sm btn-success">Laundry Room</button>
                         </td>
                     </tr>
                 @endforeach

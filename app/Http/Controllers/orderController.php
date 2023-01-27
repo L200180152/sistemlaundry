@@ -4,7 +4,9 @@ use Yajra\DataTables\Facades\DataTables;
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
 use App\Models\order;
+use App\Models\setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\Contracts\DataTable;
@@ -16,7 +18,8 @@ class orderController extends Controller
     {
         $data = [
             'title' => 'Pesanan MyLaundry | Karyawan',
-            'order' => order::select('*')->latest()->get()
+            'order' => order::select('*')->latest()->get(),
+            'info' => setting::all()->first()
             // 'order' => order::select('*')->limit(100)->get()
         ];
         // return DataTables::of($data)->make(true);
@@ -27,6 +30,8 @@ class orderController extends Controller
     {
         $data = [
             'title' => 'Buat Order | MyLaundry',
+            'info' => setting::all()->first(),
+            'kategori' => kategori::all()
         ];
 
         return view('karyawan.buatorder', $data);

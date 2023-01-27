@@ -14,7 +14,9 @@
 .beranda-text{
     margin-left: auto;
     /* position: absolute; */
-    margin-top: 30%;
+    margin-right: auto;
+    max-width: 70%;
+    margin-top: 20%;
     font-family: 'poppins';
     /* font-weight: bold; */
     color: white;

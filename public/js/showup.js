@@ -6,7 +6,7 @@ const display = document.querySelector('.bagian-display'),
       kontak = document.querySelector('.bagian-kontak'),
       about = document.querySelector('.bagian-about'),
       footer = document.querySelector('.bagian-footer'),
-      toggle1 = document.querySelector('label[for=navigasi]'),
+      // toggle1 = document.querySelector('label[for=navigasi]'),
       toggle2 = document.querySelector('label[for=beranda]');
       toggle3 = document.querySelector('label[for=mitra]');
       toggle4 = document.querySelector('label[for=galeri]');
@@ -14,9 +14,9 @@ const display = document.querySelector('.bagian-display'),
       toggle6 = document.querySelector('label[for=about]');
       toggle7 = document.querySelector('label[for=footer]');
 
-      toggle1.addEventListener("click",()=>{
-        navigasi.classList.toggle("show");
-      });
+      // toggle1.addEventListener("click",()=>{
+      //   navigasi.classList.toggle("show");
+      // });
       toggle2.addEventListener("click",()=>{
         beranda.classList.toggle("show");
       });

@@ -61,13 +61,27 @@
                             <small>Masukkan Data dengan Benar!</small>
                         </div>
                     @enderror
+
+                    <h6>Selimut</h6>
+                    <div class="d-flex align-items-center">
+                        <input type="number" class="form-control w-25 me-2 mb-3 @error('selimut') is invalid @enderror"
+                            onchange="hitung()" name="berat" id="berat" value="1" required>
+                        <h6>Pcs</h6>
+                    </div>
+                    @error('selimut')
+                        <div class="alert alert-danger">
+                            <small>Masukkan Data dengan Benar!</small>
+                        </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <h6>Paket Laundry</h6>
                     <select class="form-control mb-3 @error('paket_laundry') is invalid @enderror" name="paket_laundry"
                         id="paket_laundry" onchange="hitung()">
-                        <option value="paket1">Cuci Kering Setrika</option>
-                        <option value="paket2">Cuci Kering / Setrika Saja</option>
+                        <option value="">Pilih Kategori..</option>
+                        @foreach ($kategori as $kat)
+                            <option value="{{ $kat->id }}">{{ $kat->nama }}</option>
+                        @endforeach
                     </select>
                     @error('paket_laundry')
                         <div class="alert alert-danger">
