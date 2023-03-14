@@ -32,7 +32,7 @@ class kategoriController extends Controller
     public function geteditkategori(Request $request)
     {
         $data = kategori::where('id', $request->id_kategori)->get();
-        // dd($data);
+
         return response()->json($data);
     }
 
@@ -44,7 +44,7 @@ class kategoriController extends Controller
             'harga' => 'required|numeric'
         ]);
 
-        $editkategori = kategori::create([
+        $editkategori = kategori::where('id', $request->id)->update([
             'nama' => $request->nama,
             'deskripsi' => $request->deskripsi,
             'satuan' => $request->satuan,
@@ -52,9 +52,9 @@ class kategoriController extends Controller
         ]);
 
         if ($editkategori) {
-            return redirect('/kategori')->with('sukses', 'Tambah Kategori Berhasil');
+            return redirect('/kategori')->with('sukses', 'Edit Kategori Berhasil');
         } else {
-            return redirect('/kategori')->with('gagal', 'Tambah Kategori Gagal');
+            return redirect('/kategori')->with('gagal', 'Edit Kategori Gagal');
         }
     }
 

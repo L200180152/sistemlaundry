@@ -4,7 +4,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 namespace App\Http\Controllers;
 
+use App\Models\antrian;
+use App\Models\detailorder;
 use App\Models\kategori;
+use App\Models\member;
 use App\Models\order;
 use App\Models\setting;
 use Illuminate\Http\Request;
@@ -20,9 +23,7 @@ class orderController extends Controller
             'title' => 'Pesanan MyLaundry | Karyawan',
             'order' => order::select('*')->latest()->get(),
             'info' => setting::all()->first()
-            // 'order' => order::select('*')->limit(100)->get()
         ];
-        // return DataTables::of($data)->make(true);
         return view('karyawan.order', $data);
     }
 
@@ -31,6 +32,7 @@ class orderController extends Controller
         $data = [
             'title' => 'Buat Order | MyLaundry',
             'info' => setting::all()->first(),
+            'member' => member::all(),
             'kategori' => kategori::all()
         ];
 
@@ -41,7 +43,8 @@ class orderController extends Controller
     {
         $data = [
             'title' => 'Edit Order | MyLaundry',
-            'order' => order::where('id', $id)->get()
+            'order' => order::where('id', $id)->get(),
+            'info' => setting::all()->first(),
         ];
 
         return view('karyawan.editorder', $data);
@@ -106,30 +109,38 @@ class orderController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|max:255',
+            'invoice' => 'required|max:255',
             'no_hp' => 'required|max:255',
-            'berat' => 'required|max:255|numeric',
+            'qty' => 'required|max:255',
             'alamat' => 'required',
-            'harga' => 'required',
-            'paket_laundry' => 'required',
+            'subtotal' => 'required',
+            'totalharga' => 'required',
+            'paket' => 'required',
             'tanggal_masuk' => 'required',
             'tanggal_keluar' => 'required',
         ]);
 
-        $addorder = order::create([
+        // dd($request);
+        $antrian = antrian::create([
             'nama' => $request->nama,
-            'berat' => $request->berat,
-            'no_hp' => $request->no_hp,
+            'invoice_id' => $request->invoice,
+            'nohp' => $request->no_hp,
             'alamat' => $request->alamat,
-            'harga' => $request->harga,
-            'paket_laundry' => $request->paket_laundry,
+            'totalharga' => $request->totalharga,
             'tanggal_masuk' => $request->tanggal_masuk,
             'tanggal_keluar' => $request->tanggal_keluar,
         ]);
+        // $paket = count($request->paket);
 
-        if ($addorder) {
-            return redirect('/buatorder')->with('sukses', 'Berhasil Menambahkan');
-        } else {
-            return redirect('/buatorder')->with('gagal', 'Gagal Menambahkan');
+        foreach ($request->paket as $paket => $pkt) {
+            detailorder::create([
+                'antrian_id' => $antrian->id,
+                'paket' => $pkt,
+                'qty' => $request->qty[$paket],
+                'harga' => $request->subtotal[$paket]
+            ]);
         }
+
+        return response()->json(['success' => 'Berhasil di Tambahkan']);
     }
 }

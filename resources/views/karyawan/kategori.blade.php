@@ -55,8 +55,8 @@
                                 <td>{{ $k->deskripsi }}</td>
                                 <td>{{ $k->satuan }}</td>
                                 <td>Rp. {{ $k->harga }}</td>
-                                <td class="text-center">
-                                    <button class="btn btn-primary btn-sm mb-2" id="editkategori"
+                                <td class="text-center d-flex">
+                                    <button class="btn btn-primary me-2 btn-sm" id="editkategori"
                                         onclick="getID({{ $k->id }})"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -115,8 +115,8 @@
                                 <td>{{ $k->deskripsi }}</td>
                                 <td>{{ $k->satuan }}</td>
                                 <td>Rp. {{ $k->harga }}</td>
-                                <td class="text-center">
-                                    <button class="btn btn-primary btn-sm mb-2" id="editkategori"
+                                <td class="text-center d-flex">
+                                    <button class="btn btn-primary me-2 btn-sm" id="editkategori"
                                         onclick="getID({{ $k->id }})"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -210,11 +210,6 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#table-kategori').DataTable();
-            $('#table-item').DataTable();
-        });
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -230,15 +225,30 @@
             $.get('/geteditkategori', {
                 id_kategori: params
             }, function(response) {
+                console.log(response);
                 $('#nama').val(response[0].nama);
                 $('#deskripsi').val(response[0].deskripsi);
                 $('#satuan').val(response[0].satuan);
                 $('#harga').val(response[0].harga);
 
-                $('#tambahkategori').text("Simpan");
-                $('.tombol-kategori').append("<a href='/kategori' class='tombol-merah mt-3'>Reset</a>");
-                $('#formkategori').attr('action', '/editkategori');
+                $('.tombol-kategori button').remove();
+                if (response[0].tipe == 'paket utama') {
+                    console.log('paket utama');
+                    $('.tombol-kategori').append(
+                        '<button type="submit" class="tombol-simpan mt-3 me-2" id="tambahkategori">Simpan</button>'
+                    );
+                    $('.tombol-kategori').append("<button type='reset' class='tombol-merah mt-3'>Reset</button>");
+                } else {
+                    console.log('Item');
+                    $('.tombol-kategori').append(
+                        '<button type="submit" class="tombol-simpan mt-3 me-2" id="tambahitem">Simpan</button>'
+                    );
+                    $('.tombol-kategori').append("<button type='reset' class='tombol-merah mt-3'>Reset</button>");
+                }
+                $('#formkategori').attr('action', '/editkategori/' + response[0].id);
             });
+
+            // location.reload(false);
         }
     </script>
 @endsection

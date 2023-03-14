@@ -78,6 +78,12 @@
                         <span class="description">Tampilan</span>
                     </a>
                 </div>
+                <div class="list-item {{ $title === 'Member MyLaundry | Karyawan' ? 'active' : '' }}">
+                    <a href="/member">
+                        <div class="icon"><i class="fa-solid fa-users"></i></div>
+                        <span class="description">Member</span>
+                    </a>
+                </div>
                 <div class="list-item {{ $title === 'Kategori MyLaundry | Karyawan' ? 'active' : '' }}">
                     <a href="/kategori">
                         <div class="icon"><i class="fa-solid fa-paperclip"></i></div>
@@ -184,7 +190,7 @@
 
     <script>
         /* When the user clicks on the button, 
-                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                    toggle between hiding and showing the dropdown content */
         function dropdownclick() {
             document.getElementById("myDropdown").classList.toggle("clickdropdown");
         }

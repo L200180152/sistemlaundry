@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\tampilanController;
@@ -30,6 +31,9 @@ Route::get('/register', [viewController::class, 'register']);
 Route::get('/dashboard', [viewController::class, 'dashboard']);
 Route::get('/information', [viewController::class, 'information']);
 Route::get('/employe', [viewController::class, 'employe']);
+Route::get('/member', [viewController::class, 'member']);
+Route::post('/addmember', [viewController::class, 'addmember']);
+Route::post('/hapusmember/{id}', [viewController::class, 'hapusmember']);
 Route::get('/report', [viewController::class, 'report']);
 Route::get('/antrian', [viewController::class, 'antrian']);
 
@@ -42,6 +46,11 @@ Route::get('/kategori', [kategoriController::class, 'kategori']);
 Route::post('/addkategori', [kategoriController::class, 'addkategori']);
 Route::post('/hapuskategori/{id}', [kategoriController::class, 'hapuskategori']);
 Route::get('/geteditkategori', [kategoriController::class, 'geteditkategori']);
+Route::post('/editkategori/{id}', [kategoriController::class, 'editkategori']);
+
+Route::get('/addantrian', [AntrianController::class, 'addantrian']);
+Route::get('/getmember/{id}', [AntrianController::class, 'member']);
+Route::post('/hapusantrian', [AntrianController::class, 'hapusantrian']);
 
 Route::get('/order', [orderController::class, 'order']);
 Route::get('/buatorder', [orderController::class, 'buatorder']);
